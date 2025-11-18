@@ -1,0 +1,279 @@
+{% extends "base.html" %}
+
+{% block title %}Quantum Concepts - Quantum Computing in the Cloud{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-5xl font-bold text-white mb-6">
+            Quantum Concepts
+        </h1>
+        <p class="text-xl text-gray-300">
+            Master the fundamental principles that make quantum computing revolutionary
+        </p>
+    </div>
+</section>
+
+<!-- Concepts Grid -->
+<section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Superposition -->
+        <div class="concept-section mb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-cyan-400 mb-6">
+                        <i class="fas fa-layer-group mr-3"></i>
+                        Superposition
+                    </h2>
+                    <p class="text-lg text-gray-300 mb-6">
+                        Unlike classical bits that are either 0 or 1, quantum bits (qubits) can exist 
+                        in a superposition of both states simultaneously. This fundamental property 
+                        enables quantum computers to process exponentially more information.
+                    </p>
+                    <div class="bg-black bg-opacity-30 rounded-lg p-6 mb-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">Mathematical Representation</h3>
+                        <p class="text-gray-300 font-mono">
+                            |ψ⟩ = α|0⟩ + β|1⟩
+                        </p>
+                        <p class="text-sm text-gray-400 mt-2">
+                            Where α and β are complex probability amplitudes
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="concept-tag">Quantum Parallelism</span>
+                        <span class="concept-tag">Probability Amplitudes</span>
+                        <span class="concept-tag">Wave Function</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="superposition-demo bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg p-8">
+                        <div class="qubit-visualization">
+                            <div class="qubit-sphere"></div>
+                            <div class="state-vectors">
+                                <div class="vector vector-0">|0⟩</div>
+                                <div class="vector vector-1">|1⟩</div>
+                                <div class="vector vector-super">|ψ⟩</div>
+                            </div>
+                        </div>
+                        <p class="text-white mt-4 font-semibold">Bloch Sphere Representation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Entanglement -->
+        <div class="concept-section mb-16 bg-black bg-opacity-20 rounded-xl p-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1 text-center">
+                    <div class="entanglement-demo bg-gradient-to-br from-purple-400 to-pink-600 rounded-lg p-8">
+                        <div class="entangled-qubits">
+                            <div class="qubit qubit-a">
+                                <div class="qubit-core"></div>
+                                <span class="qubit-label">Qubit A</span>
+                            </div>
+                            <div class="entanglement-line"></div>
+                            <div class="qubit qubit-b">
+                                <div class="qubit-core"></div>
+                                <span class="qubit-label">Qubit B</span>
+                            </div>
+                        </div>
+                        <p class="text-white mt-4 font-semibold">Entangled Qubits</p>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h2 class="text-3xl font-bold text-purple-400 mb-6">
+                        <i class="fas fa-link mr-3"></i>
+                        Entanglement
+                    </h2>
+                    <p class="text-lg text-gray-300 mb-6">
+                        Quantum entanglement creates correlations between qubits that persist regardless 
+                        of the distance separating them. When qubits are entangled, measuring one 
+                        instantly affects the state of its partner.
+                    </p>
+                    <div class="bg-black bg-opacity-30 rounded-lg p-6 mb-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">Bell State Example</h3>
+                        <p class="text-gray-300 font-mono">
+                            |Φ⁺⟩ = (|00⟩ + |11⟩) / √2
+                        </p>
+                        <p class="text-sm text-gray-400 mt-2">
+                            Maximally entangled two-qubit state
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="concept-tag">Non-locality</span>
+                        <span class="concept-tag">Bell States</span>
+                        <span class="concept-tag">Quantum Correlation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interference -->
+        <div class="concept-section mb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-green-400 mb-6">
+                        <i class="fas fa-wave-square mr-3"></i>
+                        Quantum Interference
+                    </h2>
+                    <p class="text-lg text-gray-300 mb-6">
+                        Quantum interference occurs when probability amplitudes combine. Constructive 
+                        interference increases the probability of desired outcomes, while destructive 
+                        interference suppresses unwanted results.
+                    </p>
+                    <div class="bg-black bg-opacity-30 rounded-lg p-6 mb-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">Amplitude Addition</h3>
+                        <p class="text-gray-300">
+                            Constructive: |α + β|² > |α|² + |β|²<br>
+                            Destructive: |α - β|² < |α|² + |β|²
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="concept-tag">Amplitude Amplification</span>
+                        <span class="concept-tag">Phase Relationships</span>
+                        <span class="concept-tag">Quantum Algorithms</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="interference-demo bg-gradient-to-br from-green-400 to-teal-600 rounded-lg p-8">
+                        <div class="wave-interference">
+                            <div class="wave wave-1"></div>
+                            <div class="wave wave-2"></div>
+                            <div class="wave wave-result"></div>
+                        </div>
+                        <p class="text-white mt-4 font-semibold">Wave Interference Pattern</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Measurement -->
+        <div class="concept-section mb-16 bg-black bg-opacity-20 rounded-xl p-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1 text-center">
+                    <div class="measurement-demo bg-gradient-to-br from-red-400 to-orange-600 rounded-lg p-8">
+                        <div class="measurement-process">
+                            <div class="quantum-state">
+                                <span class="state-label">|ψ⟩</span>
+                                <div class="superposition-indicator"></div>
+                            </div>
+                            <div class="measurement-arrow">
+                                <i class="fas fa-arrow-down text-2xl"></i>
+                            </div>
+                            <div class="classical-result">
+                                <span class="result-0">0</span>
+                                <span class="result-or">or</span>
+                                <span class="result-1">1</span>
+                            </div>
+                        </div>
+                        <p class="text-white mt-4 font-semibold">Quantum Measurement</p>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h2 class="text-3xl font-bold text-red-400 mb-6">
+                        <i class="fas fa-search mr-3"></i>
+                        Quantum Measurement
+                    </h2>
+                    <p class="text-lg text-gray-300 mb-6">
+                        Measuring a quantum system collapses the superposition into a definite classical 
+                        state. The measurement outcome is probabilistic, determined by the squared 
+                        magnitude of the probability amplitudes.
+                    </p>
+                    <div class="bg-black bg-opacity-30 rounded-lg p-6 mb-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">Born Rule</h3>
+                        <p class="text-gray-300">
+                            P(0) = |α|²<br>
+                            P(1) = |β|²<br>
+                            P(0) + P(1) = 1
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="concept-tag">Wave Function Collapse</span>
+                        <span class="concept-tag">Born Rule</span>
+                        <span class="concept-tag">Probabilistic Outcomes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quantum Gates -->
+        <div class="concept-section mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-yellow-400 mb-6">
+                    <i class="fas fa-microchip mr-3"></i>
+                    Quantum Gates
+                </h2>
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+                    Quantum gates are the building blocks of quantum circuits. They perform unitary 
+                    operations on qubits, manipulating their quantum states to implement algorithms.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Pauli-X Gate -->
+                <div class="gate-card">
+                    <div class="gate-symbol">X</div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Pauli-X Gate</h3>
+                    <p class="text-gray-300 text-sm mb-3">Quantum NOT gate - flips qubit state</p>
+                    <div class="gate-matrix">
+                        <span class="matrix-label">Matrix:</span>
+                        <div class="matrix">
+                            [0 1]<br>
+                            [1 0]
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hadamard Gate -->
+                <div class="gate-card">
+                    <div class="gate-symbol">H</div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Hadamard Gate</h3>
+                    <p class="text-gray-300 text-sm mb-3">Creates superposition states</p>
+                    <div class="gate-matrix">
+                        <span class="matrix-label">Matrix:</span>
+                        <div class="matrix">
+                            [1  1]<br>
+                            [1 -1] / √2
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CNOT Gate -->
+                <div class="gate-card">
+                    <div class="gate-symbol">⊕</div>
+                    <h3 class="text-lg font-semibold text-white mb-2">CNOT Gate</h3>
+                    <p class="text-gray-300 text-sm mb-3">Controlled-NOT - creates entanglement</p>
+                    <div class="gate-matrix">
+                        <span class="matrix-label">Matrix:</span>
+                        <div class="matrix">
+                            [1 0 0 0]<br>
+                            [0 1 0 0]<br>
+                            [0 0 0 1]<br>
+                            [0 0 1 0]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Interactive Learning CTA -->
+<section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-white mb-6">
+            Ready to Apply These Concepts?
+        </h2>
+        <p class="text-xl text-gray-100 mb-8">
+            Put your quantum knowledge to the test with our interactive simulator
+        </p>
+        <a href="{{ url_for('simulation') }}" class="btn-primary text-lg px-8 py-4 bg-white text-blue-600 hover:bg-gray-100">
+            <i class="fas fa-play mr-2"></i>
+            Start Experimenting
+        </a>
+    </div>
+</section>
+{% endblock %}

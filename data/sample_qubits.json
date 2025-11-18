@@ -1,0 +1,471 @@
+{
+  "sample_quantum_states": {
+    "description": "Sample quantum states and their properties for educational purposes",
+    "states": {
+      "ground_state": {
+        "name": "Ground State |0⟩",
+        "description": "The fundamental quantum state representing classical bit 0",
+        "state_vector": [1.0, 0.0],
+        "probability_0": 1.0,
+        "probability_1": 0.0,
+        "bloch_sphere": {
+          "theta": 0,
+          "phi": 0,
+          "coordinates": [0, 0, 1]
+        }
+      },
+      "excited_state": {
+        "name": "Excited State |1⟩",
+        "description": "The excited quantum state representing classical bit 1",
+        "state_vector": [0.0, 1.0],
+        "probability_0": 0.0,
+        "probability_1": 1.0,
+        "bloch_sphere": {
+          "theta": 3.14159,
+          "phi": 0,
+          "coordinates": [0, 0, -1]
+        }
+      },
+      "superposition_plus": {
+        "name": "Superposition |+⟩",
+        "description": "Equal superposition state created by Hadamard gate on |0⟩",
+        "state_vector": [0.7071067811865476, 0.7071067811865476],
+        "probability_0": 0.5,
+        "probability_1": 0.5,
+        "bloch_sphere": {
+          "theta": 1.5707963267948966,
+          "phi": 0,
+          "coordinates": [1, 0, 0]
+        }
+      },
+      "superposition_minus": {
+        "name": "Superposition |−⟩",
+        "description": "Negative superposition state",
+        "state_vector": [0.7071067811865476, -0.7071067811865476],
+        "probability_0": 0.5,
+        "probability_1": 0.5,
+        "bloch_sphere": {
+          "theta": 1.5707963267948966,
+          "phi": 3.14159,
+          "coordinates": [-1, 0, 0]
+        }
+      },
+      "y_plus": {
+        "name": "Y-basis |+i⟩",
+        "description": "Positive Y-basis state",
+        "state_vector": [0.7071067811865476, "0.7071067811865476i"],
+        "probability_0": 0.5,
+        "probability_1": 0.5,
+        "bloch_sphere": {
+          "theta": 1.5707963267948966,
+          "phi": 1.5707963267948966,
+          "coordinates": [0, 1, 0]
+        }
+      },
+      "y_minus": {
+        "name": "Y-basis |−i⟩",
+        "description": "Negative Y-basis state",
+        "state_vector": [0.7071067811865476, "-0.7071067811865476i"],
+        "probability_0": 0.5,
+        "probability_1": 0.5,
+        "bloch_sphere": {
+          "theta": 1.5707963267948966,
+          "phi": -1.5707963267948966,
+          "coordinates": [0, -1, 0]
+        }
+      }
+    }
+  },
+  "two_qubit_states": {
+    "description": "Sample two-qubit quantum states",
+    "states": {
+      "ground_ground": {
+        "name": "|00⟩",
+        "description": "Both qubits in ground state",
+        "state_vector": [1.0, 0.0, 0.0, 0.0],
+        "probabilities": {
+          "00": 1.0,
+          "01": 0.0,
+          "10": 0.0,
+          "11": 0.0
+        }
+      },
+      "bell_phi_plus": {
+        "name": "Bell State |Φ+⟩",
+        "description": "Maximally entangled state (|00⟩ + |11⟩)/√2",
+        "state_vector": [0.7071067811865476, 0.0, 0.0, 0.7071067811865476],
+        "probabilities": {
+          "00": 0.5,
+          "01": 0.0,
+          "10": 0.0,
+          "11": 0.5
+        },
+        "entanglement": "maximal",
+        "creation_circuit": [
+          {"gate": "H", "target": 0},
+          {"gate": "CNOT", "control": 0, "target": 1}
+        ]
+      },
+      "bell_phi_minus": {
+        "name": "Bell State |Φ−⟩",
+        "description": "Maximally entangled state (|00⟩ - |11⟩)/√2",
+        "state_vector": [0.7071067811865476, 0.0, 0.0, -0.7071067811865476],
+        "probabilities": {
+          "00": 0.5,
+          "01": 0.0,
+          "10": 0.0,
+          "11": 0.5
+        },
+        "entanglement": "maximal",
+        "creation_circuit": [
+          {"gate": "H", "target": 0},
+          {"gate": "CNOT", "control": 0, "target": 1},
+          {"gate": "Z", "target": 1}
+        ]
+      },
+      "bell_psi_plus": {
+        "name": "Bell State |Ψ+⟩",
+        "description": "Maximally entangled state (|01⟩ + |10⟩)/√2",
+        "state_vector": [0.0, 0.7071067811865476, 0.7071067811865476, 0.0],
+        "probabilities": {
+          "00": 0.0,
+          "01": 0.5,
+          "10": 0.5,
+          "11": 0.0
+        },
+        "entanglement": "maximal",
+        "creation_circuit": [
+          {"gate": "H", "target": 0},
+          {"gate": "X", "target": 1},
+          {"gate": "CNOT", "control": 0, "target": 1}
+        ]
+      },
+      "bell_psi_minus": {
+        "name": "Bell State |Ψ−⟩",
+        "description": "Maximally entangled state (|01⟩ - |10⟩)/√2",
+        "state_vector": [0.0, 0.7071067811865476, -0.7071067811865476, 0.0],
+        "probabilities": {
+          "00": 0.0,
+          "01": 0.5,
+          "10": 0.5,
+          "11": 0.0
+        },
+        "entanglement": "maximal",
+        "creation_circuit": [
+          {"gate": "H", "target": 0},
+          {"gate": "X", "target": 1},
+          {"gate": "CNOT", "control": 0, "target": 1},
+          {"gate": "Z", "target": 0}
+        ]
+      },
+      "product_state": {
+        "name": "Product State |+0⟩",
+        "description": "Separable state with first qubit in superposition",
+        "state_vector": [0.7071067811865476, 0.7071067811865476, 0.0, 0.0],
+        "probabilities": {
+          "00": 0.5,
+          "01": 0.0,
+          "10": 0.5,
+          "11": 0.0
+        },
+        "entanglement": "none",
+        "creation_circuit": [
+          {"gate": "H", "target": 0}
+        ]
+      }
+    }
+  },
+  "quantum_algorithms": {
+    "description": "Sample quantum algorithm implementations",
+    "algorithms": {
+      "deutsch_jozsa": {
+        "name": "Deutsch-Jozsa Algorithm",
+        "description": "Determines if a function is constant or balanced",
+        "qubits_required": 3,
+        "oracle_types": {
+          "constant_0": {
+            "description": "Function always returns 0",
+            "circuit": []
+          },
+          "constant_1": {
+            "description": "Function always returns 1",
+            "circuit": [
+              {"gate": "X", "target": 2}
+            ]
+          },
+          "balanced_x0": {
+            "description": "Function returns x0 (first input bit)",
+            "circuit": [
+              {"gate": "CNOT", "control": 0, "target": 2}
+            ]
+          },
+          "balanced_x1": {
+            "description": "Function returns x1 (second input bit)",
+            "circuit": [
+              {"gate": "CNOT", "control": 1, "target": 2}
+            ]
+          }
+        },
+        "full_circuit": [
+          {"gate": "X", "target": 2},
+          {"gate": "H", "target": 0},
+          {"gate": "H", "target": 1},
+          {"gate": "H", "target": 2},
+          {"comment": "Oracle goes here"},
+          {"gate": "H", "target": 0},
+          {"gate": "H", "target": 1}
+        ]
+      },
+      "grovers_search": {
+        "name": "Grover's Search Algorithm",
+        "description": "Searches unsorted database quadratically faster",
+        "qubits_required": 2,
+        "marked_item": "11",
+        "iterations": 1,
+        "circuit": [
+          {"gate": "H", "target": 0},
+          {"gate": "H", "target": 1},
+          {"comment": "Oracle: mark |11⟩"},
+          {"gate": "CZ", "control": 0, "target": 1},
+          {"comment": "Diffusion operator"},
+          {"gate": "H", "target": 0},
+          {"gate": "H", "target": 1},
+          {"gate": "X", "target": 0},
+          {"gate": "X", "target": 1},
+          {"gate": "CZ", "control": 0, "target": 1},
+          {"gate": "X", "target": 0},
+          {"gate": "X", "target": 1},
+          {"gate": "H", "target": 0},
+          {"gate": "H", "target": 1}
+        ]
+      },
+      "quantum_teleportation": {
+        "name": "Quantum Teleportation",
+        "description": "Transfers quantum state using entanglement",
+        "qubits_required": 3,
+        "protocol": [
+          {"step": 1, "description": "Create Bell pair", "gates": [
+            {"gate": "H", "target": 1},
+            {"gate": "CNOT", "control": 1, "target": 2}
+          ]},
+          {"step": 2, "description": "Bell measurement", "gates": [
+            {"gate": "CNOT", "control": 0, "target": 1},
+            {"gate": "H", "target": 0}
+          ]},
+          {"step": 3, "description": "Classical correction", "gates": [
+            {"gate": "CX", "control": 1, "target": 2},
+            {"gate": "CZ", "control": 0, "target": 2}
+          ]}
+        ]
+      }
+    }
+  },
+  "quantum_gates": {
+    "description": "Comprehensive quantum gate library",
+    "single_qubit_gates": {
+      "pauli_gates": {
+        "X": {
+          "name": "Pauli-X (NOT)",
+          "matrix": [[0, 1], [1, 0]],
+          "description": "Bit flip gate, rotates π around X-axis",
+          "effect": "|0⟩ → |1⟩, |1⟩ → |0⟩"
+        },
+        "Y": {
+          "name": "Pauli-Y",
+          "matrix": [[0, "-i"], ["i", 0]],
+          "description": "Bit and phase flip, rotates π around Y-axis",
+          "effect": "|0⟩ → i|1⟩, |1⟩ → -i|0⟩"
+        },
+        "Z": {
+          "name": "Pauli-Z",
+          "matrix": [[1, 0], [0, -1]],
+          "description": "Phase flip gate, rotates π around Z-axis",
+          "effect": "|0⟩ → |0⟩, |1⟩ → -|1⟩"
+        }
+      },
+      "hadamard": {
+        "H": {
+          "name": "Hadamard",
+          "matrix": [["1/√2", "1/√2"], ["1/√2", "-1/√2"]],
+          "description": "Creates superposition, rotates π around X+Z axis",
+          "effect": "|0⟩ → (|0⟩+|1⟩)/√2, |1⟩ → (|0⟩-|1⟩)/√2"
+        }
+      },
+      "phase_gates": {
+        "S": {
+          "name": "S Gate (Phase)",
+          "matrix": [[1, 0], [0, "i"]],
+          "description": "Quarter turn around Z-axis",
+          "effect": "|0⟩ → |0⟩, |1⟩ → i|1⟩"
+        },
+        "T": {
+          "name": "T Gate",
+          "matrix": [[1, 0], [0, "e^(iπ/4)"]],
+          "description": "Eighth turn around Z-axis",
+          "effect": "|0⟩ → |0⟩, |1⟩ → e^(iπ/4)|1⟩"
+        }
+      },
+      "rotation_gates": {
+        "RX": {
+          "name": "X-Rotation",
+          "matrix": [["cos(θ/2)", "-i*sin(θ/2)"], ["-i*sin(θ/2)", "cos(θ/2)"]],
+          "description": "Rotation around X-axis by angle θ",
+          "parameter": "θ (rotation angle)"
+        },
+        "RY": {
+          "name": "Y-Rotation", 
+          "matrix": [["cos(θ/2)", "-sin(θ/2)"], ["sin(θ/2)", "cos(θ/2)"]],
+          "description": "Rotation around Y-axis by angle θ",
+          "parameter": "θ (rotation angle)"
+        },
+        "RZ": {
+          "name": "Z-Rotation",
+          "matrix": [["e^(-iθ/2)", 0], [0, "e^(iθ/2)"]],
+          "description": "Rotation around Z-axis by angle θ",
+          "parameter": "θ (rotation angle)"
+        }
+      }
+    },
+    "two_qubit_gates": {
+      "CNOT": {
+        "name": "Controlled-NOT",
+        "matrix": [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 1], [0, 0, 1, 0]],
+        "description": "Flips target if control is |1⟩",
+        "effect": "|00⟩→|00⟩, |01⟩→|01⟩, |10⟩→|11⟩, |11⟩→|10⟩"
+      },
+      "CZ": {
+        "name": "Controlled-Z",
+        "matrix": [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, -1]],
+        "description": "Applies Z to target if control is |1⟩",
+        "effect": "|11⟩ → -|11⟩, others unchanged"
+      },
+      "SWAP": {
+        "name": "SWAP",
+        "matrix": [[1, 0, 0, 0], [0, 0, 1, 0], [0, 1, 0, 0], [0, 0, 0, 1]],
+        "description": "Swaps the states of two qubits",
+        "effect": "|01⟩ ↔ |10⟩"
+      }
+    }
+  },
+  "measurement_data": {
+    "description": "Sample measurement results for different quantum states",
+    "experiments": {
+      "bell_state_measurement": {
+        "state": "Bell |Φ+⟩",
+        "shots": 1000,
+        "results": {
+          "00": 487,
+          "01": 0,
+          "10": 0,
+          "11": 513
+        },
+        "theoretical_probabilities": {
+          "00": 0.5,
+          "01": 0.0,
+          "10": 0.0,
+          "11": 0.5
+        }
+      },
+      "superposition_measurement": {
+        "state": "Single qubit |+⟩",
+        "shots": 1000,
+        "results": {
+          "0": 503,
+          "1": 497
+        },
+        "theoretical_probabilities": {
+          "0": 0.5,
+          "1": 0.5
+        }
+      },
+      "ghz_state_measurement": {
+        "state": "3-qubit GHZ state",
+        "shots": 1000,
+        "results": {
+          "000": 251,
+          "001": 0,
+          "010": 0,
+          "011": 0,
+          "100": 0,
+          "101": 0,
+          "110": 0,
+          "111": 749
+        },
+        "theoretical_probabilities": {
+          "000": 0.5,
+          "111": 0.5
+        }
+      }
+    }
+  },
+  "educational_examples": {
+    "description": "Step-by-step examples for learning quantum computing",
+    "examples": {
+      "creating_superposition": {
+        "title": "Creating Quantum Superposition",
+        "steps": [
+          {
+            "step": 1,
+            "description": "Start with qubit in |0⟩ state",
+            "state": [1.0, 0.0],
+            "visualization": "Bloch vector points up (north pole)"
+          },
+          {
+            "step": 2,
+            "description": "Apply Hadamard gate",
+            "gate": "H",
+            "state": [0.7071, 0.7071],
+            "visualization": "Bloch vector points along +X axis"
+          },
+          {
+            "step": 3,
+            "description": "Measure in computational basis",
+            "measurement_probabilities": {"0": 0.5, "1": 0.5},
+            "note": "Equal probability of measuring 0 or 1"
+          }
+        ]
+      },
+      "quantum_interference": {
+        "title": "Demonstrating Quantum Interference",
+        "steps": [
+          {
+            "step": 1,
+            "description": "Create superposition with H gate",
+            "circuit": [{"gate": "H", "target": 0}],
+            "state": [0.7071, 0.7071]
+          },
+          {
+            "step": 2,
+            "description": "Apply another H gate",
+            "circuit": [{"gate": "H", "target": 0}],
+            "state": [1.0, 0.0],
+            "note": "Interference causes return to |0⟩"
+          }
+        ]
+      },
+      "entanglement_creation": {
+        "title": "Creating Quantum Entanglement",
+        "steps": [
+          {
+            "step": 1,
+            "description": "Start with two qubits in |00⟩",
+            "state": [1.0, 0.0, 0.0, 0.0]
+          },
+          {
+            "step": 2,
+            "description": "Put first qubit in superposition",
+            "circuit": [{"gate": "H", "target": 0}],
+            "state": [0.7071, 0.0, 0.7071, 0.0]
+          },
+          {
+            "step": 3,
+            "description": "Apply CNOT to create entanglement",
+            "circuit": [{"gate": "CNOT", "control": 0, "target": 1}],
+            "state": [0.7071, 0.0, 0.0, 0.7071],
+            "note": "Now qubits are maximally entangled"
+          }
+        ]
+      }
+    }
+  }
+}

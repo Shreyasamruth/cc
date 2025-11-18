@@ -1,0 +1,287 @@
+{% extends "base.html" %}
+
+{% block title %}Contact - Quantum Computing in the Cloud{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-5xl font-bold text-white mb-6">
+            Get in Touch
+        </h1>
+        <p class="text-xl text-gray-300">
+            Have questions about quantum computing? Want to collaborate? We'd love to hear from you!
+        </p>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            <!-- Contact Form -->
+            <div class="simulator-panel">
+                <h2 class="text-2xl font-bold text-white mb-6">
+                    <i class="fas fa-paper-plane mr-3"></i>
+                    Send us a Message
+                </h2>
+                
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-2">
+                            Full Name *
+                        </label>
+                        <input type="text" id="name" name="name" required
+                               class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
+                               placeholder="Enter your full name">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">
+                            Email Address *
+                        </label>
+                        <input type="email" id="email" name="email" required
+                               class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
+                               placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">
+                            Subject *
+                        </label>
+                        <select id="subject" name="subject" required
+                                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent">
+                            <option value="">Select a topic</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="collaboration">Collaboration</option>
+                            <option value="education">Educational Partnership</option>
+                            <option value="feedback">Feedback & Suggestions</option>
+                            <option value="bug">Bug Report</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-2">
+                            Message *
+                        </label>
+                        <textarea id="message" name="message" rows="6" required
+                                  class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent resize-vertical"
+                                  placeholder="Tell us about your quantum computing interests, questions, or ideas..."></textarea>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <input type="checkbox" id="newsletter" name="newsletter"
+                               class="mt-1 h-4 w-4 text-cyan-400 bg-gray-700 border-gray-600 rounded focus:ring-cyan-400">
+                        <label for="newsletter" class="ml-3 text-sm text-gray-300">
+                            Subscribe to our newsletter for quantum computing updates and new features
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary w-full text-lg py-3">
+                        <i class="fas fa-send mr-2"></i>
+                        Send Message
+                    </button>
+                </form>
+                
+                <!-- Form Status -->
+                <div id="form-status" class="mt-4 hidden">
+                    <div id="success-message" class="bg-green-600 bg-opacity-20 border border-green-500 text-green-400 px-4 py-3 rounded-lg hidden">
+                        <i class="fas fa-check-circle mr-2"></i>
+                        Thank you! Your message has been sent successfully.
+                    </div>
+                    <div id="error-message" class="bg-red-600 bg-opacity-20 border border-red-500 text-red-400 px-4 py-3 rounded-lg hidden">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        Sorry, there was an error sending your message. Please try again.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="space-y-8">
+                
+                <!-- Contact Details -->
+                <div class="simulator-panel">
+                    <h2 class="text-2xl font-bold text-white mb-6">
+                        <i class="fas fa-info-circle mr-3"></i>
+                        Contact Information
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-white mb-1">Email</h3>
+                                <p class="text-gray-300">quantum@cloudcomputing.edu</p>
+                                <p class="text-sm text-gray-400">We typically respond within 24 hours</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-university text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-white mb-1">Institution</h3>
+                                <p class="text-gray-300">Quantum Research Lab</p>
+                                <p class="text-sm text-gray-400">Department of Computer Science</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-teal-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-white mb-1">Response Time</h3>
+                                <p class="text-gray-300">24-48 hours</p>
+                                <p class="text-sm text-gray-400">Monday to Friday, 9 AM - 5 PM UTC</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="simulator-panel">
+                    <h2 class="text-2xl font-bold text-white mb-6">
+                        <i class="fas fa-share-alt mr-3"></i>
+                        Connect With Us
+                    </h2>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github text-2xl"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter text-2xl"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube text-2xl"></i>
+                            <span>YouTube</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- FAQ -->
+                <div class="simulator-panel">
+                    <h2 class="text-2xl font-bold text-white mb-6">
+                        <i class="fas fa-question-circle mr-3"></i>
+                        Frequently Asked Questions
+                    </h2>
+                    
+                    <div class="space-y-4">
+                        <div class="faq-item">
+                            <h3 class="text-lg font-semibold text-cyan-400 mb-2">
+                                Is this simulator free to use?
+                            </h3>
+                            <p class="text-gray-300 text-sm">
+                                Yes! Our quantum circuit simulator is completely free for educational 
+                                and research purposes.
+                            </p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="text-lg font-semibold text-purple-400 mb-2">
+                                Can I use real quantum hardware?
+                            </h3>
+                            <p class="text-gray-300 text-sm">
+                                We provide integration with cloud quantum computing platforms. 
+                                Some services may require registration and have usage limits.
+                            </p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3 class="text-lg font-semibold text-green-400 mb-2">
+                                Do you offer educational partnerships?
+                            </h3>
+                            <p class="text-gray-300 text-sm">
+                                Absolutely! We collaborate with educational institutions to 
+                                integrate quantum computing into curricula.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-white mb-4">
+            Stay Updated on Quantum Computing
+        </h2>
+        <p class="text-xl text-gray-100 mb-8">
+            Get the latest news, tutorials, and updates delivered to your inbox
+        </p>
+        
+        <form id="newsletter-form" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <input type="email" placeholder="Enter your email" required
+                   class="flex-1 px-4 py-3 rounded-lg bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400">
+            <button type="submit" class="btn-primary bg-white text-blue-600 hover:bg-gray-100 px-6 py-3">
+                Subscribe
+            </button>
+        </form>
+    </div>
+</section>
+
+<script>
+// Contact form handling
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Show loading state
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+    submitBtn.disabled = true;
+    
+    // Simulate form submission
+    setTimeout(() => {
+        // Show success message
+        document.getElementById('form-status').classList.remove('hidden');
+        document.getElementById('success-message').classList.remove('hidden');
+        document.getElementById('error-message').classList.add('hidden');
+        
+        // Reset form
+        this.reset();
+        
+        // Reset button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+            document.getElementById('form-status').classList.add('hidden');
+        }, 5000);
+    }, 2000);
+});
+
+// Newsletter form handling
+document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = 'Subscribing...';
+    submitBtn.disabled = true;
+    
+    setTimeout(() => {
+        alert('Thank you for subscribing to our newsletter!');
+        this.reset();
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }, 1500);
+});
+</script>
+{% endblock %}

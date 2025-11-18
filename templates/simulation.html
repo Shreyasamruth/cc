@@ -1,0 +1,269 @@
+{% extends "base.html" %}
+
+{% block title %}Quantum Simulator - Quantum Computing in the Cloud{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-white mb-4">
+                Quantum Circuit Simulator
+            </h1>
+            <p class="text-xl text-gray-300">
+                Build and simulate quantum circuits in real-time
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Simulator Interface -->
+<section class="pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 xl:grid-cols-4 gap-8">
+            
+            <!-- Gate Palette -->
+            <div class="xl:col-span-1">
+                <div class="simulator-panel">
+                    <h3 class="text-xl font-semibold text-white mb-4">
+                        <i class="fas fa-toolbox mr-2"></i>
+                        Quantum Gates
+                    </h3>
+                    
+                    <!-- Single Qubit Gates -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-medium text-cyan-400 mb-3">Single Qubit Gates</h4>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button class="gate-button" data-gate="X" title="Pauli-X (NOT) Gate">
+                                <span class="gate-symbol">X</span>
+                            </button>
+                            <button class="gate-button" data-gate="Y" title="Pauli-Y Gate">
+                                <span class="gate-symbol">Y</span>
+                            </button>
+                            <button class="gate-button" data-gate="Z" title="Pauli-Z Gate">
+                                <span class="gate-symbol">Z</span>
+                            </button>
+                            <button class="gate-button" data-gate="H" title="Hadamard Gate">
+                                <span class="gate-symbol">H</span>
+                            </button>
+                            <button class="gate-button" data-gate="S" title="S Gate">
+                                <span class="gate-symbol">S</span>
+                            </button>
+                            <button class="gate-button" data-gate="T" title="T Gate">
+                                <span class="gate-symbol">T</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Two Qubit Gates -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-medium text-purple-400 mb-3">Two Qubit Gates</h4>
+                        <div class="grid grid-cols-1 gap-2">
+                            <button class="gate-button" data-gate="CNOT" title="Controlled-NOT Gate">
+                                <span class="gate-symbol">⊕</span>
+                                <span class="gate-name">CNOT</span>
+                            </button>
+                            <button class="gate-button" data-gate="CZ" title="Controlled-Z Gate">
+                                <span class="gate-symbol">CZ</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Measurement -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-medium text-green-400 mb-3">Measurement</h4>
+                        <button class="gate-button w-full" data-gate="MEASURE" title="Measurement">
+                            <i class="fas fa-search mr-2"></i>
+                            <span class="gate-name">Measure</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Circuit Controls -->
+                    <div class="border-t border-gray-600 pt-4">
+                        <h4 class="text-lg font-medium text-yellow-400 mb-3">Circuit Controls</h4>
+                        <div class="space-y-2">
+                            <button id="clear-circuit" class="control-button bg-red-600 hover:bg-red-700">
+                                <i class="fas fa-trash mr-2"></i>Clear
+                            </button>
+                            <button id="run-simulation" class="control-button bg-green-600 hover:bg-green-700">
+                                <i class="fas fa-play mr-2"></i>Run
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Circuit Builder -->
+            <div class="xl:col-span-2">
+                <div class="simulator-panel">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-semibold text-white">
+                            <i class="fas fa-project-diagram mr-2"></i>
+                            Circuit Builder
+                        </h3>
+                        <div class="flex items-center space-x-4">
+                            <label class="text-gray-300">
+                                Qubits:
+                                <select id="qubit-count" class="ml-2 bg-gray-700 text-white rounded px-2 py-1">
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Circuit Canvas -->
+                    <div class="circuit-canvas bg-gray-800 rounded-lg p-4 min-h-96 overflow-auto">
+                        <div id="circuit-display">
+                            <!-- Circuit will be rendered here -->
+                            <div class="text-center text-gray-400 py-20">
+                                <i class="fas fa-plus-circle text-4xl mb-4"></i>
+                                <p>Click on gates to add them to your circuit</p>
+                                <p class="text-sm mt-2">Drag gates to reorder or remove them</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Circuit Info -->
+                    <div class="mt-4 grid grid-cols-2 gap-4">
+                        <div class="bg-gray-800 rounded p-3">
+                            <span class="text-gray-400 text-sm">Gates: </span>
+                            <span id="gate-count" class="text-white font-semibold">0</span>
+                        </div>
+                        <div class="bg-gray-800 rounded p-3">
+                            <span class="text-gray-400 text-sm">Depth: </span>
+                            <span id="circuit-depth" class="text-white font-semibold">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Results Panel -->
+            <div class="xl:col-span-1">
+                <div class="simulator-panel">
+                    <h3 class="text-xl font-semibold text-white mb-4">
+                        <i class="fas fa-chart-bar mr-2"></i>
+                        Results
+                    </h3>
+                    
+                    <!-- Simulation Status -->
+                    <div id="simulation-status" class="mb-4 p-3 bg-gray-800 rounded">
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 bg-gray-500 rounded-full mr-2"></div>
+                            <span class="text-gray-400">Ready to simulate</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Quantum State -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-medium text-cyan-400 mb-3">Quantum State</h4>
+                        <div id="quantum-state" class="bg-gray-800 rounded p-3 font-mono text-sm">
+                            <div class="text-gray-400">|00⟩: 1.0000</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Measurement Results -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-medium text-green-400 mb-3">Measurements</h4>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-300">Shots:</span>
+                                <input type="number" id="shots-input" value="1024" min="1" max="10000" 
+                                       class="bg-gray-700 text-white rounded px-2 py-1 w-20 text-sm">
+                            </div>
+                        </div>
+                        <div id="measurement-results" class="mt-3 bg-gray-800 rounded p-3">
+                            <div class="text-gray-400 text-sm">Run simulation to see results</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Probability Chart -->
+                    <div>
+                        <h4 class="text-lg font-medium text-purple-400 mb-3">Probability Distribution</h4>
+                        <div id="probability-chart" class="bg-gray-800 rounded p-3 h-32">
+                            <div class="text-gray-400 text-sm text-center pt-10">
+                                No data to display
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Example Circuits -->
+        <div class="mt-12">
+            <div class="simulator-panel">
+                <h3 class="text-xl font-semibold text-white mb-6">
+                    <i class="fas fa-lightbulb mr-2"></i>
+                    Example Circuits
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Bell State -->
+                    <div class="example-circuit">
+                        <h4 class="text-lg font-semibold text-cyan-400 mb-2">Bell State</h4>
+                        <p class="text-gray-300 text-sm mb-3">
+                            Creates maximum entanglement between two qubits
+                        </p>
+                        <div class="circuit-preview bg-gray-800 rounded p-2 mb-3 font-mono text-xs">
+                            q0: ─H─●─<br>
+                            q1: ───X─
+                        </div>
+                        <button class="example-button" data-example="bell">
+                            <i class="fas fa-download mr-1"></i>Load Circuit
+                        </button>
+                    </div>
+                    
+                    <!-- Superposition -->
+                    <div class="example-circuit">
+                        <h4 class="text-lg font-semibold text-purple-400 mb-2">Superposition</h4>
+                        <p class="text-gray-300 text-sm mb-3">
+                            Puts a qubit in equal superposition of |0⟩ and |1⟩
+                        </p>
+                        <div class="circuit-preview bg-gray-800 rounded p-2 mb-3 font-mono text-xs">
+                            q0: ─H─
+                        </div>
+                        <button class="example-button" data-example="superposition">
+                            <i class="fas fa-download mr-1"></i>Load Circuit
+                        </button>
+                    </div>
+                    
+                    <!-- Quantum Teleportation -->
+                    <div class="example-circuit">
+                        <h4 class="text-lg font-semibold text-green-400 mb-2">Teleportation</h4>
+                        <p class="text-gray-300 text-sm mb-3">
+                            Demonstrates quantum teleportation protocol
+                        </p>
+                        <div class="circuit-preview bg-gray-800 rounded p-2 mb-3 font-mono text-xs">
+                            q0: ───●─H─M─<br>
+                            q1: ─H─●───M─<br>
+                            q2: ─────X─Z─
+                        </div>
+                        <button class="example-button" data-example="teleportation">
+                            <i class="fas fa-download mr-1"></i>Load Circuit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Loading Modal -->
+<div id="loading-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-gray-800 rounded-lg p-8 text-center">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-400 mx-auto mb-4"></div>
+        <p class="text-white text-lg">Running Quantum Simulation...</p>
+        <p class="text-gray-400 text-sm mt-2">This may take a few moments</p>
+    </div>
+</div>
+
+<script>
+// Initialize quantum simulator
+document.addEventListener('DOMContentLoaded', function() {
+    window.quantumSimulator = new QuantumSimulator();
+});
+</script>
+{% endblock %}

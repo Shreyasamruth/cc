@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Quantum Computing in the Cloud{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                Quantum Computing
+            </h1>
+            <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-white">
+                in the Cloud
+            </h2>
+            <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
+                Explore the fascinating world of quantum computing through interactive simulations 
+                and cloud-based quantum processors.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{{ url_for('simulation') }}" class="btn-primary">
+                    <i class="fas fa-play mr-2"></i>
+                    Start Simulation
+                </a>
+                <a href="{{ url_for('concepts') }}" class="btn-secondary">
+                    <i class="fas fa-book-open mr-2"></i>
+                    Learn Concepts
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Enhanced animated background elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="quantum-particle particle-1"></div>
+        <div class="quantum-particle particle-2"></div>
+        <div class="quantum-particle particle-3"></div>
+        <div class="quantum-particle particle-4"></div>
+        <div class="quantum-particle particle-5"></div>
+        
+        <!-- Quantum field lines -->
+        <div class="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-20 animate-pulse"></div>
+        <div class="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-20 animate-pulse" style="animation-delay: 1s;"></div>
+        
+        <!-- Quantum nodes -->
+        <div class="absolute top-1/3 left-1/4 w-2 h-2 bg-cyan-400 rounded-full opacity-40 animate-ping"></div>
+        <div class="absolute bottom-1/3 right-1/4 w-2 h-2 bg-purple-400 rounded-full opacity-40 animate-ping" style="animation-delay: 0.5s;"></div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-white mb-4">
+                Quantum Features
+            </h2>
+            <p class="text-xl text-gray-300">
+                Discover the power of quantum computing through our interactive platform
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="feature-card interactive-card hover-glow">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 quantum-spinner">
+                        <i class="fas fa-atom text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-4 animate-gradient">Quantum Simulation</h3>
+                    <p class="text-gray-300">
+                        Run quantum circuits in our browser-based simulator. 
+                        Experiment with qubits, gates, and quantum algorithms.
+                    </p>
+                    <div class="mt-4 flex justify-center space-x-2">
+                        <span class="px-2 py-1 bg-cyan-500 bg-opacity-20 text-cyan-300 text-xs rounded-full">Real-time</span>
+                        <span class="px-2 py-1 bg-blue-500 bg-opacity-20 text-blue-300 text-xs rounded-full">Interactive</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="feature-card interactive-card hover-glow">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 hover:animate-pulse">
+                        <i class="fas fa-cloud text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-4">Cloud Integration</h3>
+                    <p class="text-gray-300">
+                        Connect to real quantum computers in the cloud. 
+                        Experience the power of actual quantum processors.
+                    </p>
+                    <div class="mt-4 flex justify-center space-x-2">
+                        <span class="px-2 py-1 bg-purple-500 bg-opacity-20 text-purple-300 text-xs rounded-full">IBM Quantum</span>
+                        <span class="px-2 py-1 bg-pink-500 bg-opacity-20 text-pink-300 text-xs rounded-full">Google AI</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="feature-card interactive-card hover-glow">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-6 hover:rotate-12 transition-transform duration-300">
+                        <i class="fas fa-graduation-cap text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-4">Interactive Learning</h3>
+                    <p class="text-gray-300">
+                        Learn quantum concepts through visual explanations, 
+                        interactive examples, and hands-on experiments.
+                    </p>
+                    <div class="mt-4 flex justify-center space-x-2">
+                        <span class="px-2 py-1 bg-green-500 bg-opacity-20 text-green-300 text-xs rounded-full">Visual</span>
+                        <span class="px-2 py-1 bg-teal-500 bg-opacity-20 text-teal-300 text-xs rounded-full">Hands-on</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quantum Concepts Preview -->
+<section class="py-20 bg-black bg-opacity-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-white mb-4">
+                Quantum Concepts
+            </h2>
+            <p class="text-xl text-gray-300">
+                Master the fundamental principles of quantum computing
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Superposition -->
+            <div class="concept-card">
+                <h3 class="text-xl font-semibold text-cyan-400 mb-3">
+                    <i class="fas fa-layer-group mr-2"></i>
+                    Superposition
+                </h3>
+                <p class="text-gray-300">
+                    Qubits can exist in multiple states simultaneously, 
+                    enabling quantum parallelism and exponential speedup.
+                </p>
+            </div>
+            
+            <!-- Entanglement -->
+            <div class="concept-card">
+                <h3 class="text-xl font-semibold text-purple-400 mb-3">
+                    <i class="fas fa-link mr-2"></i>
+                    Entanglement
+                </h3>
+                <p class="text-gray-300">
+                    Quantum particles become correlated in ways that 
+                    classical physics cannot explain or replicate.
+                </p>
+            </div>
+            
+            <!-- Interference -->
+            <div class="concept-card">
+                <h3 class="text-xl font-semibold text-green-400 mb-3">
+                    <i class="fas fa-wave-square mr-2"></i>
+                    Interference
+                </h3>
+                <p class="text-gray-300">
+                    Quantum amplitudes can interfere constructively or 
+                    destructively to enhance correct solutions.
+                </p>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="{{ url_for('concepts') }}" class="btn-primary">
+                <i class="fas fa-arrow-right mr-2"></i>
+                Explore All Concepts
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-20">
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-white mb-6">
+            Ready to Enter the Quantum Realm?
+        </h2>
+        <p class="text-xl text-gray-300 mb-8">
+            Start your quantum computing journey today with our interactive simulator 
+            and comprehensive learning resources.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{{ url_for('simulation') }}" class="btn-primary text-lg px-8 py-4">
+                <i class="fas fa-rocket mr-2"></i>
+                Launch Simulator
+            </a>
+            <a href="{{ url_for('about') }}" class="btn-secondary text-lg px-8 py-4">
+                <i class="fas fa-info-circle mr-2"></i>
+                Learn More
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
